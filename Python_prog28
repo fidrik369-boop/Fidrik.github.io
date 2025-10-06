@@ -1,0 +1,25 @@
+import numpy as np
+
+def main():
+    # Take user input for the array
+    user_input = input("Enter the elements of the array separated by spaces: ")
+    arr = np.array([int(x) for x in user_input.split()])
+
+    # Find the minimum value in the array
+    min_value = np.min(arr)
+    print(f"\nMinimum value: {min_value}")
+
+    # Find the maximum value in the array
+    max_value = np.max(arr)
+    print(f"Maximum value: {max_value}")
+
+    # Calculate the sum of all elements in the array
+    sum_value = np.sum(arr)
+    print(f"Sum of all elements: {sum_value}")
+
+    # Calculate the cumulative sum of the array
+    cumulative_sum = np.cumsum(arr)
+    print(f"Cumulative sum of the array: {cumulative_sum}")
+
+if __name__ == "__main__":
+    main()
