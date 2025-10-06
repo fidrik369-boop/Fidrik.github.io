@@ -1,0 +1,43 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Create the DataFrame
+data = {
+    'A': [1, 2, 3, 4, 5],
+    'B': ['a', 'b', 'c', 'd', 'e'],
+    'C': [10.1, 20.2, 30.3, 40.4, 50.5],
+    'D': [True, False, True, False, True],
+    'E': ['apple', 'banana', 'cherry', 'date', 'elderberry']
+}
+
+df = pd.DataFrame(data)
+
+# Get the column names
+column_names = list(df.columns)
+
+# Ask the user to select two columns
+print("Select two columns:")
+for i, column in enumerate(column_names):
+    print("{}. {}".format(i + 1, column))
+
+column1_index = int(input("Enter the number of the first column: ")) - 1
+column2_index = int(input("Enter the number of the second column: ")) - 1
+
+column1 = column_names[column1_index]
+column2 = column_names[column2_index]
+
+# Create a scatter plot
+plt.figure(figsize=(10, 6))
+plt.scatter(df[column1], df[column2])
+plt.xlabel(column1)
+plt.ylabel(column2)
+plt.title(f'Scatter Plot of {column1} vs {column2}')
+plt.show()
+
+# Create a line plot
+plt.figure(figsize=(10, 6))
+plt.plot(df[column1], df[column2], marker='o')
+plt.xlabel(column1)
+plt.ylabel(column2)
+plt.title(f'Line Plot of {column1} vs {column2}')
+plt.show()
