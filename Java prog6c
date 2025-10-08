@@ -1,0 +1,26 @@
+class ThrowExample {
+    public static void main(String args[]) {
+        int a = Integer.parseInt(args[0]);   // age
+        int b = Integer.parseInt(args[1]);   // weight
+
+        System.out.println("Welcome to the Registration process!!");
+
+        try {
+            checkEligibility(a, b);
+        } 
+        catch (ArithmeticException ae) {
+            System.out.println("java.lang.ArithmeticException: Student is not eligible for registration");
+        }
+
+        System.out.println("Have a nice day");
+    }
+
+    static void checkEligibility(int age, int weight) {
+        if (age < 12 && weight < 40) {
+            throw new ArithmeticException("Student is not eligible for registration");
+        } 
+        else {
+            System.out.println("Student Entry is Valid!!");
+        }
+    }
+}
