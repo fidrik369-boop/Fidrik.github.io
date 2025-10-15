@@ -1,0 +1,84 @@
+class A {
+    int n;
+    boolean b = false;
+
+    synchronized int get() {
+        if (!b) {
+            try {
+                wait();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+        System.out.println("Got: " + n);
+        b = false;
+        notify();
+        return n;
+    }
+
+    synchronized void put(int n) {
+        if (b) {
+            try {
+                wait();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+        this.n = n;
+        b = true;
+        System.out.println("Put: " + n);
+        notify();
+    }
+}
+
+class Producer implements Runnable {
+    A a1;
+    Thread t1;
+
+    Producer(A a1) {
+        this.a1 = a1;
+        t1 = new Thread(this, "Producer");
+        t1.start();
+    }
+
+    public void run() {
+        for (int i = 1; i <= 10; i++) {
+            a1.put(i);
+            try {
+                Thread.sleep(500); // Optional small delay
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+        }
+    }
+}
+
+class Consumer implements Runnable {
+    A a1;
+    Thread t2;
+
+    Consumer(A a1) {
+        this.a1 = a1;
+        t2 = new Thread(this, "Consumer");
+        t2.start();
+    }
+
+    public void run() {
+        for (int j = 1; j <= 10; j++) {
+            a1.get();
+            try {
+                Thread.sleep(1000); // Optional small delay
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+        }
+    }
+}
+
+public class InterDemo {
+    public static void main(String[] args) {
+        A a1 = new A();
+        new Producer(a1);
+        new Consumer(a1);
+    }
+}
