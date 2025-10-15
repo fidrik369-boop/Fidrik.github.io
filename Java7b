@@ -1,0 +1,50 @@
+class A extends Thread {
+    public void run() {
+        try {
+            for (int i = 1; i <= 10; i++) {
+                Thread.sleep(1000);  // sleep for 1 second
+                System.out.println("Good Morning");
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+
+class B extends Thread {
+    public void run() {
+        try {
+            for (int j = 1; j <= 10; j++) {
+                Thread.sleep(2000);  // sleep for 2 seconds
+                System.out.println("Hello");
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+
+public class IsAliveDemo {
+    public static void main(String[] args) {
+        A a1 = new A();
+        B b1 = new B();
+
+        a1.start();
+        System.out.println("a1 is alive: " + a1.isAlive());
+
+        b1.start();
+        System.out.println("b1 is alive: " + b1.isAlive());
+
+        try {
+            // Wait for both threads to finish
+            a1.join();
+            b1.join();
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+
+        System.out.println("a1 is alive after join: " + a1.isAlive());
+        System.out.println("b1 is alive after join: " + b1.isAlive());
+        System.out.println("Main thread ends.");
+    }
+}
