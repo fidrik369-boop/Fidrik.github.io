@@ -1,0 +1,19 @@
+# Program: Find Factorial using OOP
+
+class Factorial:
+    def __init__(self, num):
+        self.num = num
+
+    def calculate(self):
+        fact = 1
+        for i in range(1, self.num + 1):
+            fact *= i
+        return fact
+
+
+# Main program
+n = int(input("Enter a number: "))
+
+obj = Factorial(n)         # Create object
+result = obj.calculate()   # Call method
+print(f"The factorial of {n} is {result}")
