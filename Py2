@@ -1,0 +1,11 @@
+# Program 2: Check if a number is positive and even
+
+num = int(input("Enter a number: "))
+
+if num > 0:
+    if num % 2 == 0:
+        print(f"{num} is positive and even.")
+    else:
+        print(f"{num} is positive but odd.")
+else:
+    print(f"{num} is not positive.")
