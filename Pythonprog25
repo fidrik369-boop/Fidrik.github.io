@@ -1,0 +1,16 @@
+import numpy as np
+def create_array_from_input():
+    # Prompt the user to enter values for the array
+    input_values = input("Enter values separated by spaces: ")
+    # Split the input string into a list of strings
+    input_list = input_values.split()
+
+    # Convert the list of strings to a list of floats
+    input_list = [float(value) for value in input_list]
+    # Create a NumPy array from the list
+    numpy_array = np.array(input_list)
+    return numpy_array
+# Call the function and display the result
+array = create_array_from_input()
+print("NumPy Array created:")
+print(array)
