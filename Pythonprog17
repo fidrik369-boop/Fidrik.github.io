@@ -1,0 +1,17 @@
+def sum_dictionary_items(d):
+    # Sum all the values in the dictionary
+    return sum(d.values())
+
+# Example dictionary
+example_dict = {
+    "item1": 10,
+    "item2": 20,
+    "item3": 30,
+    "item4": 40
+}
+
+# Calculate the sum of all items
+total_sum = sum_dictionary_items(example_dict)
+
+# Print the result
+print("The sum of all items in the dictionary is:", total_sum)
