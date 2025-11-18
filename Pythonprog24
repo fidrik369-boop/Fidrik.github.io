@@ -1,0 +1,46 @@
+import json
+
+def is_complex_object(data):
+    """Check if the given data contains a complex object (nested dictionaries or lists)."""
+    
+    if isinstance(data, dict):
+        for key, value in data.items():
+            if isinstance(value, (dict, list)):
+                return True
+            if is_complex_object(value):
+                return True
+
+    elif isinstance(data, list):
+        for item in data:
+            if isinstance(item, (dict, list)):
+                return True
+            if is_complex_object(item):
+                return True
+
+    return False
+
+
+def check_json_complexity(json_string):
+    """Check if the JSON string contains a complex object."""
+    try:
+        data = json.loads(json_string)
+    except json.JSONDecodeError:
+        print("Invalid JSON string.")
+        return False
+
+    return is_complex_object(data)
+
+
+def main():
+    # Take JSON string input from the user
+    json_string = input("Enter a JSON string to check: ")
+
+    # Check if the JSON string contains a complex object
+    if check_json_complexity(json_string):
+        print("The JSON string contains a complex object.")
+    else:
+        print("The JSON string does not contain a complex object.")
+
+
+if __name__ == "__main__":
+    main()
