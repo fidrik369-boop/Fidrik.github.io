@@ -1,0 +1,52 @@
+import numpy as np
+
+# -------- 1D Array --------
+n = int(input("Enter number of elements for 1D array: "))
+arr1 = np.array(list(map(int, input("Enter elements: ").split())))
+
+print("\n1D Array:", arr1)
+print("ndim:", arr1.ndim)
+print("shape:", arr1.shape)
+print("size:", arr1.size)
+print("dtype:", arr1.dtype)
+
+
+# -------- 2D Array --------
+r = int(input("\nEnter number of rows for 2D array: "))
+c = int(input("Enter number of columns for 2D array: "))
+
+arr2 = []
+for i in range(r):
+    arr2.append(list(map(int, input("Enter elements: ").split())))
+
+arr2 = np.array(arr2)
+
+print("\n2D Array:")
+print(arr2)
+print("ndim:", arr2.ndim)
+print("shape:", arr2.shape)
+print("size:", arr2.size)
+print("dtype:", arr2.dtype)
+
+
+# -------- 3D Array --------
+d = int(input("\nEnter depth for 3D array: "))
+r = int(input("Enter rows: "))
+c = int(input("Enter columns: "))
+
+arr3 = []
+for i in range(d):
+    matrix = []
+    print(f"Matrix {i+1}:")
+    for j in range(r):
+        matrix.append(list(map(int, input("Enter elements: ").split())))
+    arr3.append(matrix)
+
+arr3 = np.array(arr3)
+
+print("\n3D Array:")
+print(arr3)
+print("ndim:", arr3.ndim)
+print("shape:", arr3.shape)
+print("size:", arr3.size)
+print("dtype:", arr3.dtype)
