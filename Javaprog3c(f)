@@ -1,0 +1,22 @@
+class Rectangle
+{
+    int l, b;
+
+    // No-argument constructor
+    Rectangle()
+    {
+        l = 10;
+        b = 20;
+    }
+
+    int area()
+    {
+        return l * b;
+    }
+
+    public static void main(String args[])
+    {
+        Rectangle r = new Rectangle(); // constructor called
+        System.out.println("Area: " + r.area());
+    }
+}
