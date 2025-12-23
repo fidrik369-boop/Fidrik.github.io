@@ -20,3 +20,31 @@ class Rectangle
         System.out.println("Area: " + r.area());
     }
 }
+
+
+
+
+
+
+class Rectangle
+{
+    int l, b;
+
+    // Parameterized constructor
+    Rectangle(int x, int y)
+    {
+        l = x;
+        b = y;
+    }
+
+    int area()
+    {
+        return l * b;
+    }
+
+    public static void main(String args[])
+    {
+        Rectangle r = new Rectangle(5, 4); // values passed
+        System.out.println("Area: " + r.area());
+    }
+}
