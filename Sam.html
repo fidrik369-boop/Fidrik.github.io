@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Registration Form</h2>
+
+<form>
+    <table>
+        <tr>
+            <th>Field</th>
+            <th>Input</th>
+        </tr>
+
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" name="name"></td>
+        </tr>
+
+        <tr>
+            <td>Email:</td>
+            <td><input type="text" name="email"></td>
+        </tr>
+
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" name="password"></td>
+        </tr>
+
+        <tr>
+            <td>Age:</td>
+            <td><input type="number" name="age"></td>
+        </tr>
+
+        <tr>
+            <td>Date of Birth:</td>
+            <td><input type="date" name="dob"></td>
+        </tr>
+
+        <tr>
+            <td>Gender:</td>
+            <td>
+                <input type="radio" name="gender" value="male"> Male
+                <input type="radio" name="gender" value="female"> Female
+            </td>
+        </tr>
+
+        <tr>
+            <td>Interests:</td>
+            <td>
+                <input type="checkbox" name="interests" value="music"> Music
+                <input type="checkbox" name="interests" value="sports"> Sports
+            </td>
+        </tr>
+
+        <tr>
+            <td>Country:</td>
+            <td>
+                <select name="country">
+                    <option value="USA">USA</option>
+                    <option value="Canada">Canada</option>
+                    <option value="UK">UK</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>About Me:</td>
+            <td>
+                <textarea name="about" rows="4" cols="30"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
