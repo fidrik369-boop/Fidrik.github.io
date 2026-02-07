@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Frames Example</title>
+</head>
+
+<!-- Frameset replaces body -->
+<frameset cols="33%,33%,34%" frameborder="1" noresize>
+
+    <!-- First frame: Image -->
+    <frame src="image.html" name="imageFrame" noresize>
+
+    <!-- Second frame: Paragraph -->
+    <frame src="text.html" name="textFrame" noresize>
+
+    <!-- Third frame: Hyperlink -->
+    <frame src="link.html" name="linkFrame" noresize>
+
+    <!-- No frames support -->
+    <noframes>
+        <body>
+            <p>Your browser does not support frames.</p>
+        </body>
+    </noframes>
+
+</frameset>
+</html>
