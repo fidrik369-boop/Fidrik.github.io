@@ -1,0 +1,252 @@
+✅ EXPERIMENT – 4
+Conversion, String and Date Functions
+A. Conversion Functions
+1. TO_CHAR (Number → String)
+SQL
+Copy code
+SELECT TO_CHAR(12345, '99,999') AS RESULT
+FROM DUAL;
+Output:
+Copy code
+
+RESULT
+-------
+12,345
+2. TO_CHAR (Date → String)
+SQL
+Copy code
+SELECT TO_CHAR(SYSDATE, 'DD-MON-YYYY HH:MI:SS AM') AS RESULT
+FROM DUAL;
+Sample Output: (date/time will change)
+Copy code
+
+RESULT
+--------------------------
+25-FEB-2026 02:30:15 PM
+3. TO_NUMBER (String → Number)
+SQL
+Copy code
+SELECT TO_NUMBER('15000') + 5000 AS RESULT
+FROM DUAL;
+Output:
+Copy code
+
+RESULT
+------
+20000
+4. TO_DATE (String → Date)
+SQL
+Copy code
+SELECT TO_DATE('15-08-2024', 'DD-MM-YYYY') AS RESULT
+FROM DUAL;
+Output:
+Copy code
+
+RESULT
+---------
+15-AUG-24
+B. String Functions
+1. Concatenation
+SQL
+Copy code
+SELECT 'Hello' || ' World' AS RESULT
+FROM DUAL;
+Output:
+Copy code
+
+RESULT
+-----------
+Hello World
+2. LPAD
+SQL
+Copy code
+SELECT LPAD('SQL', 10, '*') AS RESULT
+FROM DUAL;
+Output:
+Copy code
+
+RESULT
+-----------
+*******SQL
+3. RPAD
+SQL
+Copy code
+SELECT RPAD('SQL', 10, '#') AS RESULT
+FROM DUAL;
+Output:
+Copy code
+
+RESULT
+-----------
+SQL#######
+4. LTRIM
+SQL
+Copy code
+SELECT LTRIM('----DBMS', '-') AS RESULT
+FROM DUAL;
+Output:
+Copy code
+
+RESULT
+-------
+DBMS
+5. RTRIM
+SQL
+Copy code
+SELECT RTRIM('DBMS****', '*') AS RESULT
+FROM DUAL;
+Output:
+Copy code
+
+RESULT
+-------
+DBMS
+6. LOWER
+SQL
+Copy code
+SELECT LOWER('WELCOME') AS RESULT
+FROM DUAL;
+Output:
+Copy code
+
+RESULT
+-------
+welcome
+7. UPPER
+SQL
+Copy code
+SELECT UPPER('oracle') AS RESULT
+FROM DUAL;
+Output:
+Copy code
+
+RESULT
+-------
+ORACLE
+8. INITCAP
+SQL
+Copy code
+SELECT INITCAP('welcome to dbms') AS RESULT
+FROM DUAL;
+Output:
+Copy code
+
+RESULT
+----------------
+Welcome To Dbms
+9. LENGTH
+SQL
+Copy code
+SELECT LENGTH('DATABASE') AS RESULT
+FROM DUAL;
+Output:
+Copy code
+
+RESULT
+------
+8
+10. SUBSTR
+SQL
+Copy code
+SELECT SUBSTR('DATABASE', 1, 4) AS RESULT
+FROM DUAL;
+Output:
+Copy code
+
+RESULT
+-------
+DATA
+11. INSTR
+SQL
+Copy code
+SELECT INSTR('DATABASE SYSTEM', 'A') AS RESULT
+FROM DUAL;
+Output:
+Copy code
+
+RESULT
+------
+2
+C. Date Functions
+1. SYSDATE
+SQL
+Copy code
+SELECT SYSDATE AS RESULT
+FROM DUAL;
+Sample Output:
+Copy code
+
+RESULT
+---------
+25-FEB-26
+2. NEXT_DAY
+SQL
+Copy code
+SELECT NEXT_DAY(SYSDATE, 'MONDAY') AS RESULT
+FROM DUAL;
+Output:
+Next coming Monday date.
+3. ADD_MONTHS
+SQL
+Copy code
+SELECT ADD_MONTHS(SYSDATE, 6) AS RESULT
+FROM DUAL;
+Output:
+Date after 6 months.
+4. LAST_DAY
+SQL
+Copy code
+SELECT LAST_DAY(SYSDATE) AS RESULT
+FROM DUAL;
+Output:
+Last date of current month.
+5. MONTHS_BETWEEN
+SQL
+Copy code
+SELECT MONTHS_BETWEEN(
+    TO_DATE('01-JAN-2024','DD-MON-YYYY'),
+    TO_DATE('01-JAN-2023','DD-MON-YYYY')
+) AS RESULT
+FROM DUAL;
+Output:
+Copy code
+
+RESULT
+------
+12
+6. LEAST & GREATEST
+SQL
+Copy code
+SELECT LEAST(10, 20, 5) AS LEAST_VALUE,
+       GREATEST(10, 20, 5) AS GREATEST_VALUE
+FROM DUAL;
+Output:
+Copy code
+
+LEAST_VALUE  GREATEST_VALUE
+----------- ---------------
+5           20
+7. TRUNC (Date)
+SQL
+Copy code
+SELECT TRUNC(SYSDATE) AS RESULT
+FROM DUAL;
+Output:
+Removes time part.
+8. ROUND (Date)
+SQL
+Copy code
+SELECT ROUND(SYSDATE, 'MONTH') AS RESULT
+FROM DUAL;
+Output:
+Rounds date to nearest month.
+✅ WHAT YOU SHOULD WRITE IN RECORD
+Aim
+Description
+Program (All SQL queries above)
+Output (Write sample outputs)
+If you want, I can:
+✍️ Write record-ready handwritten format
+📸 Mark which output to draw boxes
+🧪 Help you run this in SQL Developer step-by-step
+Just tell me 👍
