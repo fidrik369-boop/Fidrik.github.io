@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Color References</title>
+    <style>
+        /* Named Colors */
+        .named-color { color: red; }
+
+        /* Hexadecimal Colors */
+        .hex-color { color: #4CAF50; }
+
+        /* RGB Colors */
+        .rgb-color { color: rgb(0, 128, 255); }
+
+        /* RGBA Colors (Red, Green, Blue, Alpha/Opacity) */
+        .rgba-color { color: rgba(255, 0, 0, 0.5); }
+
+        /* HSL Colors (Hue, Saturation, Lightness) */
+        .hsl-color { color: hsl(120, 100%, 40%); }
+
+        /* HSLA Colors */
+        .hsla-color { color: hsla(240, 100%, 50%, 0.7); }
+
+        /* CurrentColor: Inherits the value of the 'color' property */
+        .current-color { color: darkorange; }
+        .current-color-child { 
+            color: currentColor; 
+            font-weight: bold; 
+            border: 1px solid currentColor; /* Added to show versatility */
+        }
+
+        /* Background Examples */
+        .background { 
+            background-color: #ffcc00; 
+            color: black; 
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CSS Color References</h1>
+
+    <p class="named-color">This text uses a named color: <strong>red</strong>.</p>
+    <p class="hex-color">This text uses a hexadecimal color: <strong>#4CAF50</strong>.</p>
+    <p class="rgb-color">This text uses an RGB color: <strong>rgb(0, 128, 255)</strong>.</p>
+    <p class="rgba-color">This text uses an RGBA color: <strong>rgba(255, 0, 0, 0.5)</strong>.</p> 
+    <p class="hsl-color">This text uses an HSL color: <strong>hsl(120, 100%, 40%)</strong>.</p>
+    <p class="hsla-color">This text uses an HSLA color: <strong>hsla(240, 100%, 50%, 0.7)</strong>.</p>
+
+    <p class="current-color">
+        This text uses <strong>darkorange</strong> as the color.
+        <span class="current-color-child">This child inherits the color via currentColor.</span>
+    </p>
+
+    <div class="background">
+        This text demonstrates background color: <strong>#ffcc00</strong>.
+    </div>
+
+</body>
+</html>
