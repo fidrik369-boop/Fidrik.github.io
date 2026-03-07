@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Background Image</title>
+    <style>
+        body {
+            margin: 0;
+            height: 200vh; /* Enables scrolling */
+        }
+
+        .background-image {
+            height: 100vh; /* Full viewport height */
+            /* Replace with a real image URL to see it in action */
+            background-image: url('https://via.placeholder.com/1920x1080'); 
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover; /* Ensures the image fills the area */
+            background-attachment: fixed; /* The 'Parallax' effect */
+            
+            /* Note: transform: rotate(90deg) rotates the entire DIV, 
+               not just the background image! */
+        }
+
+        p {
+            padding: 20px;
+            font-family: sans-serif;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-image"></div>
+    <p>Scroll down to see how the background image stays in place!</p>
+
+</body>
+</html>
