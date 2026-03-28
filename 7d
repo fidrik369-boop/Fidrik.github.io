@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Math Object Example</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+button {
+    margin: 5px 0;
+    padding: 8px;
+}
+
+#output {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    white-space: pre-wrap;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Math Object Example</h1>
+
+<button id="randomNumber">Generate Random Number</button>
+<button id="roundNumber">Round a Number</button>
+<button id="calculatePower">Calculate Power</button>
+<button id="findSquareRoot">Find Square Root</button>
+<button id="trigonometry">Trigonometry Example</button>
+
+<div id="output"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+const output = document.getElementById("output");
+
+// Random Number
+document.getElementById("randomNumber").addEventListener("click", () => {
+    const randomNum = Math.random();
+    output.textContent = `Random Number (0-1): ${randomNum}`;
+});
+
+// Round Number
+document.getElementById("roundNumber").addEventListener("click", () => {
+    const num = parseFloat(prompt("Enter a number to round:"));
+
+    if (!isNaN(num)) {
+        const rounded = Math.round(num);
+        output.textContent = `Number: ${num}\nRounded: ${rounded}`;
+    } else {
+        output.textContent = "Invalid input. Please enter a number.";
+    }
+});
+
+// Power
+document.getElementById("calculatePower").addEventListener("click", () => {
+    const base = parseFloat(prompt("Enter the base:"));
+    const exponent = parseFloat(prompt("Enter the exponent:"));
+
+    if (!isNaN(base) && !isNaN(exponent)) {
+        const result = Math.pow(base, exponent);
+        output.textContent = `${base} raised to the power of ${exponent} is ${result}`;
+    } else {
+        output.textContent = "Invalid input. Please enter numbers.";
+    }
+});
+
+// Square Root
+document.getElementById("findSquareRoot").addEventListener("click", () => {
+    const num = parseFloat(prompt("Enter a number:"));
+
+    if (!isNaN(num) && num >= 0) {
+        const sqrt = Math.sqrt(num);
+        output.textContent = `Square root of ${num} is ${sqrt}`;
+    } else {
+        output.textContent = "Invalid input. Enter a non-negative number.";
+    }
+});
+
+// Trigonometry
+document.getElementById("trigonometry").addEventListener("click", () => {
+    const angle = parseFloat(prompt("Enter angle in degrees:"));
+
+    if (!isNaN(angle)) {
+        const radians = (angle * Math.PI) / 180;
+
+        const sine = Math.sin(radians).toFixed(4);
+        const cosine = Math.cos(radians).toFixed(4);
+        const tangent = Math.tan(radians).toFixed(4);
+
+        output.textContent =
+            `Angle: ${angle}°\nSine: ${sine}\nCosine: ${cosine}\nTangent: ${tangent}`;
+    } else {
+        output.textContent = "Invalid input. Please enter a valid angle.";
+    }
+});
