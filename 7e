@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>String Object Example</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+button {
+    margin: 5px 0;
+    padding: 8px;
+}
+
+#output {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    white-space: pre-wrap;
+}
+</style>
+</head>
+
+<body>
+
+<h1>String Object Example</h1>
+
+<button id="stringLength">Find String Length</button>
+<button id="toUpperCase">Convert to Uppercase</button>
+<button id="findSubstring">Find Substring</button>
+<button id="toLowerCase">Convert to Lowercase</button>
+<button id="sliceString">Slice String</button>
+<button id="reverseString">Reverse String</button>
+
+<div id="output"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+const output = document.getElementById("output");
+
+// Function to display result
+function displayResult(result) {
+    output.textContent = result;
+}
+
+// Find string length
+document.getElementById("stringLength").addEventListener("click", () => {
+    const str = prompt("Enter a string:");
+    if (str) {
+        const length = str.length;
+        displayResult(`The length of the string is: ${length}`);
+    } else {
+        displayResult("No string entered.");
+    }
+});
+
+// Convert to uppercase
+document.getElementById("toUpperCase").addEventListener("click", () => {
+    const str = prompt("Enter a string:");
+    if (str) {
+        const upperStr = str.toUpperCase();
+        displayResult(`Uppercase: ${upperStr}`);
+    } else {
+        displayResult("No string entered.");
+    }
+});
+
+// Convert to lowercase
+document.getElementById("toLowerCase").addEventListener("click", () => {
+    const str = prompt("Enter a string:");
+    if (str) {
+        const lowerStr = str.toLowerCase();
+        displayResult(`Lowercase: ${lowerStr}`);
+    } else {
+        displayResult("No string entered.");
+    }
+});
+
+// Find substring
+document.getElementById("findSubstring").addEventListener("click", () => {
+    const str = prompt("Enter the main string:");
+    const substr = prompt("Enter the substring:");
+
+    if (str && substr) {
+        const index = str.indexOf(substr);
+
+        if (index !== -1) {
+            displayResult(`"${substr}" found at index ${index} in "${str}".`);
+        } else {
+            displayResult(`"${substr}" not found in "${str}".`);
+        }
+    } else {
+        displayResult("String or substring not entered.");
+    }
+});
+
+// Slice string
+document.getElementById("sliceString").addEventListener("click", () => {
+    const str = prompt("Enter a string:");
+    const start = parseInt(prompt("Enter start index:"), 10);
+    const end = parseInt(prompt("Enter end index:"), 10);
+
+    if (str && !isNaN(start) && !isNaN(end)) {
+        const slicedStr = str.slice(start, end);
+        displayResult(`Original: "${str}"\nSliced: "${slicedStr}"`);
+    } else {
+        displayResult("Invalid input.");
+    }
+});
+
+// Reverse string
+document.getElementById("reverseString").addEventListener("click", () => {
+    const str = prompt("Enter a string:");
+
+    if (str) {
+        const reversedStr = str.split("").reverse().join("");
+        displayResult(`Original: "${str}"\nReversed: "${reversedStr}"`);
+    } else {
+        displayResult("No string entered.");
+    }
+});
