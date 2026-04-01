@@ -1,0 +1,58 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class JdbcInsert {
+
+    public static void main(String[] args) {
+
+        // Database credentials
+        String url = "jdbc:mysql://localhost:3306/testdb";
+        String username = "root";
+        String password = ""; // enter password if needed
+
+        Connection conn = null;
+
+        try {
+            // 1. Load JDBC Driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // 2. Establish connection
+            conn = DriverManager.getConnection(url, username, password);
+            System.out.println("Database Connected!");
+
+            // 3. Prepare SQL Insert Statement
+            String sql = "INSERT INTO student (rollno, name, marks) VALUES (?, ?, ?)";
+            PreparedStatement pst = conn.prepareStatement(sql);
+
+            // 4. Set values
+            pst.setInt(1, 101);
+            pst.setString(2, "Ravi Kumar");
+            pst.setInt(3, 450);
+
+            // 5. Execute insertion
+            int rows = pst.executeUpdate();
+
+            // 6. Check result
+            if (rows > 0) {
+                System.out.println("Record Inserted Successfully!");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error occurred!");
+            e.printStackTrace();
+
+        } finally {
+            // 7. Close connection
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+                System.out.println("Connection Closed.");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
