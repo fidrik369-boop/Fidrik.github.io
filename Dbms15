@@ -1,0 +1,59 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class JdbcDelete {
+
+    public static void main(String[] args) {
+
+        // Database connection details
+        String url = "jdbc:mysql://localhost:3306/testdb";
+        String username = "root";
+        String password = ""; // update if needed
+
+        Connection conn = null;
+
+        try {
+            // 1. Load JDBC Driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // 2. Establish connection
+            conn = DriverManager.getConnection(url, username, password);
+            System.out.println("Database Connected!");
+
+            // 3. SQL DELETE query
+            String sql = "DELETE FROM student WHERE rollno = ?";
+
+            // 4. Create PreparedStatement
+            PreparedStatement pst = conn.prepareStatement(sql);
+
+            // 5. Set value
+            pst.setInt(1, 101); // deletes rollno 101
+
+            // 6. Execute
+            int rows = pst.executeUpdate();
+
+            // 7. Output result
+            if (rows > 0) {
+                System.out.println("Record Deleted Successfully!");
+            } else {
+                System.out.println("No record found with the given Roll No.");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error occurred!");
+            e.printStackTrace();
+        } finally {
+            // 8. Close connection
+            try {
+                if (conn != null) {
+                    conn.close();
+                    System.out.println("Connection Closed.");
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
