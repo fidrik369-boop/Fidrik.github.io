@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Print Numbers 1 to 10</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+button {
+    margin-top: 10px;
+    display: block;
+}
+
+pre {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    white-space: pre-wrap;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Print Numbers 1 to 10 Using Different Loops</h1>
+
+<button id="forLoop">Print using for loop</button>
+<button id="whileLoop">Print using while loop</button>
+<button id="doWhileLoop">Print using do-while loop</button>
+
+<h2>Output:</h2>
+<pre id="output"></pre>
+
+<script>
+
+const outputDiv = document.getElementById("output");
+
+// FOR LOOP
+document.getElementById("forLoop").addEventListener("click", () => {
+    let result = "Using for loop:\n";
+
+    for (let i = 1; i <= 10; i++) {
+        result += i + "\n";
+    }
+
+    outputDiv.textContent = result;
+});
+
+// WHILE LOOP
+document.getElementById("whileLoop").addEventListener("click", () => {
+    let result = "Using while loop:\n";
+    let i = 1;
+
+    while (i <= 10) {
+        result += i + "\n";
+        i++;
+    }
+
+    outputDiv.textContent = result;
+});
+
+// DO-WHILE LOOP
+document.getElementById("doWhileLoop").addEventListener("click", () => {
+    let result = "Using do-while loop:\n";
+    let i = 1;
+
+    do {
+        result += i + "\n";
+        i++;
+    } while (i <= 10);
+
+    outputDiv.textContent = result;
+});
+
+</script>
+
+</body>
+</html>
