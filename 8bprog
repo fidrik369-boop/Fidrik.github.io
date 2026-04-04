@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Display Weekdays</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+input {
+    margin: 5px 0;
+}
+
+#result {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Display Weekday</h1>
+
+<label for="dayNumber">Enter a number (1-7):</label>
+<input type="number" id="dayNumber" min="1" max="7" required><br>
+
+<button id="getWeekday">Get Weekday</button>
+
+<div id="result"></div>
+
+<script>
+document.getElementById("getWeekday").addEventListener("click", () => {
+
+    // Get the input value
+    const dayNumber = parseInt(document.getElementById("dayNumber").value, 10);
+    const resultDiv = document.getElementById("result");
+
+    // Validate input
+    if (isNaN(dayNumber) || dayNumber < 1 || dayNumber > 7) {
+        resultDiv.textContent = "Please enter a number between 1 and 7.";
+        return;
+    }
+
+    let weekday;
+
+    // Switch case to find weekday
+    switch (dayNumber) {
+        case 1:
+            weekday = "Monday";
+            break;
+        case 2:
+            weekday = "Tuesday";
+            break;
+        case 3:
+            weekday = "Wednesday";
+            break;
+        case 4:
+            weekday = "Thursday";
+            break;
+        case 5:
+            weekday = "Friday";
+            break;
+        case 6:
+            weekday = "Saturday";
+            break;
+        case 7:
+            weekday = "Sunday";
+            break;
+        default:
+            weekday = "Invalid input";
+    }
+
+    // Display result
+    resultDiv.textContent = `The day is: ${weekday}`;
+});
+</script>
+
+</body>
+</html>
