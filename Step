@@ -1,0 +1,194 @@
+JDBC Connection Details
+
+ String url = "jdbc:mariadb://localhost:3306/db_24JNA33001"; Note: Use Student’s Roll Number
+
+ String user = "24JNA33001"; Note: Use Student’s Roll Number
+
+ String password = "123456"; 
+
+ Class.forName("org.mariadb.jdbc.Driver");
+
+1. Create file 
+
+ geany ViewStudents.java 
+
+2. Write the following program to test JDBC connection and view output of students table 
+
+created and previously. 
+
+import java.sql.Connection;
+
+import java.sql.DriverManager;
+
+import java.sql.ResultSet;
+
+import java.sql.Statement;
+
+public class ViewStudents {
+
+ public static void main(String[] args) {
+
+ // Database credentials
+
+ String url = "jdbc:mariadb://localhost:3306/db_24JNA33001";
+
+ String username = "24JNA33001";
+
+ String password = "123456";
+
+ Connection conn = null;
+
+ Statement stmt = null;
+
+ ResultSet rs = null;
+
+ try {
+
+ // 1. Load Driver (optional in newer versions)
+
+ Class.forName("org.mariadb.jdbc.Driver");
+JDBC Connection Details
+
+ String url = "jdbc:mariadb://localhost:3306/db_24JNA33001"; Note: Use Student’s Roll Number
+
+ String user = "24JNA33001"; Note: Use Student’s Roll Number
+
+ String password = "123456"; 
+
+ Class.forName("org.mariadb.jdbc.Driver");
+
+1. Create file 
+
+ geany ViewStudents.java 
+
+2. Write the following program to test JDBC connection and view output of students table 
+
+created and previously. 
+
+import java.sql.Connection;
+
+import java.sql.DriverManager;
+
+import java.sql.ResultSet;
+
+import java.sql.Statement;
+
+public class ViewStudents {
+
+ public static void main(String[] args) {
+
+ // Database credentials
+
+ String url = "jdbc:mariadb://localhost:3306/db_24JNA33001";
+
+ String username = "24JNA33001";
+
+ String password = "123456";
+
+ Connection conn = null;
+
+ Statement stmt = null;
+
+ ResultSet rs = null;
+
+ try {
+
+ // 1. Load Driver (optional in newer versions)
+
+ Class.forName("org.mariadb.jdbc.Driver");
+
+ // 2. Establish Connection
+
+ conn = DriverManager.getConnection(url, username, password);
+
+ System.out.println("Connected to database successfully!");
+
+ // 3. Create Statement
+
+ stmt = conn.createStatement();
+
+ // 4. Execute Query
+
+ String sql = "SELECT * FROM Students";
+
+ rs = stmt.executeQuery(sql);
+
+ // 5. Process Result
+
+ System.out.println("Student Records:");
+
+ System.out.println("------------------------------------------");
+
+ while (rs.next()) {
+
+ int id = rs.getInt("StudentID");
+
+ String reg = rs.getString("RegNumber");
+
+ String name = rs.getString("Name");
+
+ String branch = rs.getString("Branch");
+
+ String sem = rs.getString("Semester");
+System.out.println(
+
+ "ID: " + id +
+
+ ", RegNo: " + reg +
+
+ ", Name: " + name +
+
+ ", Branch: " + branch +
+
+ ", Semester: " + sem
+
+ );
+
+ }
+
+ } catch (Exception e) {
+
+ e.printStackTrace();
+
+ } finally {
+
+ try {
+
+ // 6 ⃣ Close resources
+
+ if (rs != null) rs.close();
+
+ if (stmt != null) stmt.close();
+
+ if (conn != null) conn.close();
+
+ System.out.println("Connection closed.");
+
+ } catch (Exception e) {
+
+ e.printStackTrace();
+
+ }
+
+ }
+
+ }
+
+}
+
+3. Compilation & Execution
+
+1. javac ViewStudents.java
+
+2. java ViewStudents
+
+4. Expected Output
+
+1 | 24JNA3301 | Vamsi | CSE | 5
+
+2 | 24JNA3302 | Ravi | ECE | 3
+
+3 | 24JNA3303 | Sita | MECH | 2
+
+Connectio
+ 
