@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Number Operations</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.container {
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+}
+
+input, button {
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.results {
+    margin-top: 20px;
+    font-size: 18px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Number Operations</h1>
+
+    <input type="number" id="numberInput" placeholder="Enter a number">
+
+    <br>
+    <button onclick="calculateFactorial()">Factorial</button>
+    <button onclick="calculateFibonacci()">Fibonacci</button>
+    <button onclick="calculatePrimes()">Primes</button>
+    <button onclick="checkPalindrome()">Palindrome</button>
+
+    <div class="results">
+        <p><strong>Result:</strong> <span id="result"></span></p>
+    </div>
+</div>
+
+<script>
+const resultDisplay = document.getElementById("result");
+
+// Factorial
+function calculateFactorial() {
+    const num = getInputValue();
+    if (num == null) return;
+
+    let factorial = 1;
+    for (let i = 1; i <= num; i++) {
+        factorial *= i;
+    }
+
+    resultDisplay.textContent = `Factorial of ${num} is ${factorial}`;
+}
+
+// Fibonacci
+function calculateFibonacci() {
+    const num = getInputValue();
+    if (num == null) return;
+
+    let fib = [0, 1];
+
+    while (fib[fib.length - 1] + fib[fib.length - 2] <= num) {
+        fib.push(fib[fib.length - 1] + fib[fib.length - 2]);
+    }
+
+    resultDisplay.textContent = `Fibonacci series up to ${num}: ${fib.join(", ")}`;
+}
+
+// Prime Numbers
+function calculatePrimes() {
+    const num = getInputValue();
+    if (num == null) return;
+
+    let primes = [];
+
+    for (let i = 2; i <= num; i++) {
+        if (isPrime(i)) {
+            primes.push(i);
+        }
+    }
+
+    resultDisplay.textContent = `Prime numbers up to ${num}: ${primes.join(", ")}`;
+}
+
+// Palindrome
+function checkPalindrome() {
+    const num = getInputValue();
+    if (num == null) return;
+
+    let str = num.toString();
+    let reversed = str.split("").reverse().join("");
+
+    if (str === reversed) {
+        resultDisplay.textContent = `${num} is a palindrome`;
+    } else {
+        resultDisplay.textContent = `${num} is not a palindrome`;
+    }
+}
+
+// Get Input
+function getInputValue() {
+    const input = document.getElementById("numberInput").value;
+    const num = parseInt(input);
+
+    if (isNaN(num) || num < 0) {
+        alert("Please enter a valid non-negative number");
+        return null;
+    }
+
+    return num;
+}
+
+// Check Prime
+function isPrime(num) {
+    if (num < 2) return false;
+
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) return false;
+    }
+
+    return true;
+}
+</script>
+
+</body>
+</html>
