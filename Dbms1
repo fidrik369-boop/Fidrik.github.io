@@ -1,0 +1,123 @@
+-- 1. Creating DEPARTMENT table
+
+CREATE TABLE DEPARTMENT (
+    DEPT_ID NUMBER(3) PRIMARY KEY,
+    DEPT_NAME VARCHAR2(30) UNIQUE NOT NULL,
+    LOCATION VARCHAR2(20)
+);
+
+-- Output:
+-- Table DEPARTMENT created.
+
+
+-- Creating STUDENT table
+
+CREATE TABLE STUDENT (
+    ROLLNO NUMBER(5) PRIMARY KEY,
+    NAME VARCHAR2(30) NOT NULL,
+    DOB DATE,
+    GENDER CHAR(1) CHECK (GENDER IN ('M','F')),
+    DEPT_ID NUMBER(3),
+    PHONE VARCHAR2(10) UNIQUE,
+    FEE NUMBER(8,2) DEFAULT 0,
+    
+    CONSTRAINT fk_dept
+    FOREIGN KEY (DEPT_ID)
+    REFERENCES DEPARTMENT(DEPT_ID)
+);
+
+-- Output:
+-- Table STUDENT created.
+
+
+
+-- 2. Inserting Rows Into Tables
+
+-- Insert into DEPARTMENT
+
+INSERT INTO DEPARTMENT
+VALUES (10, 'CSE', 'BLOCK-A');
+
+INSERT INTO DEPARTMENT
+VALUES (20, 'ECE', 'BLOCK-B');
+
+
+-- Insert into STUDENT
+
+INSERT INTO STUDENT
+(ROLLNO, NAME, GENDER, DOB, DEPT_ID, PHONE, FEE)
+VALUES
+(101, 'RAVI', 'M', '15-AUG-2004', 10, '9876543210', 45000);
+
+
+INSERT INTO STUDENT
+(ROLLNO, NAME, GENDER, DOB, DEPT_ID, PHONE)
+VALUES
+(102, 'SITA', 'F', '10-JUL-2004', 10, '9898989898');
+
+-- FEE uses DEFAULT value 0
+
+
+
+-- 3. Altering a Table
+
+-- Add a new column
+
+ALTER TABLE STUDENT
+ADD EMAIL VARCHAR2(40);
+
+
+-- Modify column size
+
+ALTER TABLE STUDENT
+MODIFY PHONE VARCHAR2(12);
+
+
+-- Drop a column
+
+ALTER TABLE STUDENT
+DROP COLUMN EMAIL;
+
+
+-- Add CHECK constraint
+
+ALTER TABLE STUDENT
+ADD CONSTRAINT chk_fee
+CHECK (FEE > 0);
+
+
+
+-- 4. Displaying Records
+
+-- Display all columns
+
+SELECT * FROM STUDENT;
+
+
+-- Display selected columns
+
+SELECT ROLLNO, NAME, FEE
+FROM STUDENT;
+
+
+-- Students with fee greater than 40000
+
+SELECT NAME, FEE
+FROM STUDENT
+WHERE FEE > 40000;
+
+
+-- Students from CSE department
+
+SELECT S.NAME, D.DEPT_NAME
+FROM STUDENT S
+JOIN DEPARTMENT D
+ON S.DEPT_ID = D.DEPT_ID
+WHERE D.DEPT_NAME = 'CSE';
+
+
+-- Order by Name
+
+SELECT ROLLNO, NAME
+FROM STUDENT
+ORDER BY NAME;
