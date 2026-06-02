@@ -1,0 +1,55 @@
+PROGRAM 1: WHILE LOOP – Factorial of a Number
+SQL
+DECLARE
+    v_num  NUMBER := 5;
+    v_fact NUMBER := 1;
+
+BEGIN
+    WHILE v_num > 0 LOOP
+        v_fact := v_fact * v_num;
+        v_num := v_num - 1;
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('Factorial = ' || v_fact);
+
+END;
+/
+OUTPUT
+SQL
+Factorial = 120
+PROGRAM 2: NUMERIC FOR LOOP – Sum of First 10 Numbers
+SQL
+DECLARE
+    v_sum NUMBER := 0;
+
+BEGIN
+    FOR i IN 1..10 LOOP
+        v_sum := v_sum + i;
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('Sum of 1 to 10 = ' || v_sum);
+
+END;
+/
+OUTPUT
+SQL
+Sum of 1 to 10 = 55
+PROGRAM 3: NESTED LOOPS – Simple Pattern
+SQL
+BEGIN
+    FOR i IN 1..3 LOOP
+
+        FOR j IN 1..i LOOP
+            DBMS_OUTPUT.PUT('*');
+        END LOOP;
+
+        DBMS_OUTPUT.NEW_LINE;
+
+    END LOOP;
+END;
+/
+OUTPUT
+SQL
+*
+**
+***
