@@ -2,3 +2,71 @@ https://chatgpt.com/share/6a1e6db7-16f4-8324-b982-b66db46272ec
 
 
 https://chatgpt.com/share/6a1e6e9c-5f00-8323-90a3-b984bf32efb3
+
+
+
+
+
+MySQL/MariaDB Connection & Table Creation using JDBC
+
+Database Configuration
+
+Database Name: db 24JNA33001 Note: Student's Roll Number
+
+Username: 24JNA33001 Note: Student's Roll Number
+
+Password: 123456
+
+DB Server: MariaDB (MySQL compatible)
+
+1. Login to MySQL/MariaDB
+
+mysql -u 24JNA33001-p Note: Use Student's Roll Number Then enter password: 123456
+
+2. Show Databases (Optional) SHOW DATABASES;
+
+3. Select Your Database USE db 24JNA33001;
+
+4. Show Tables SHOW TABLES;
+
+5. Table Creation (Students)
+
+CREATE TABLE Students ( ); StudentID INT AUTO INCREMENT PRIMARY KEY, RegNumber VARCHAR(20) UNIQUE NOT NULL, Name VARCHAR(100) NOT NULL, Branch VARCHAR(50), Semester VARCHAR(10)
+
+6. Insert Sample Data
+
+INSERT INTO Students (RegNumber, Name, Branch, Semester) VALUES ('24JNA3301', 'Vamsi', 'CSE', '5'), (24JNA3302', 'Ravi', 'ECE','3'), (24JNA3303', 'Sita', 'MECH','2');
+
+7. exit
+
+8. Steps in Writing JDBC Program
+
+JDBC Connection Details
+
+String url="jdbc:mariadb://localhost:3306/db 24JNA33001"; Note: Use Student's Roll Number
+
+String user-"24JNA33001"; Note: Use Student's Roll Number
+
+String password "123456";
+
+Class.forName("org.mariadb.jdbc.Driver");
+
+1. Create file
+
+geany ViewStudents.java 2. Write the following program to test JDBC connection and view output of students table created and previously.
+
+import java.sql.Connection; import java.sql.DriverManager, import java.sql.ResultSet; import java.sql.Statement;
+
+public class ViewStudents {
+
+public static void main(String[] args) {
+
+// Database credentials String url = "jdbc:mariadb://localhost:3306/db 24JNA33001"; String username = "24JNA33001"; String password-"123456";
+
+Connection conn = null; Statement stmt null; ResultSet rs = null;
+
+try { // 1. Load Driver (optional in newer versions) Class.forName("org.mariadb.jdbc.Driver");
+
+//2. Establish Connection conn = DriverManager.getConnection(url, username, password); System.out.println("Connected to database successfully!");
+
+//3. Create Statement stmt conn.createStatement();
